@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_3/homepage.dart';
+import 'package:flutter_application_3/pages/homepage.dart';
+import 'package:flutter_application_3/pages/loginpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,9 +11,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int days = 10;
-    final String name = 'Avinash';
-
-    return MaterialApp(debugShowCheckedModeBanner: false, home: homepage());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      initialRoute: "/home",
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home": (context) => homepage(),
+        "/login": (context) => LoginPage()
+      },
+    );
   }
 }
